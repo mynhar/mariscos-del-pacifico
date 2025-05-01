@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariscos El Pacífico - Santa Cruz, Guanacaste</title>
+    <style>
+        :root {
+            --primary: #0a6ea6;
+            --secondary: #f39c12;
+            --light: #f5f5f5;
+            --dark: #333;
+            --accent: #e74c3c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./img/istockphoto-1130989238-1024x1024.jpg') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 150px 20px;
+            position: relative;
+        } */
+
+        header {
+            /* background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./img/istockphoto-1130989333-1024x1024.jpg') center/cover no-repeat; */
+            background: url('./img/istockphoto-1130989238-1024x1024.jpg') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 150px 20px;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            background-color: #e67e22;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .wave svg {
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 66px;
+        }
+
+        .wave .shape-fill {
+            fill: #FFFFFF;
+        }
+
+        section {
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .specialty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .specialty-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .specialty-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .specialty-image {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .specialty-content {
+            padding: 20px;
+        }
+
+        .specialty-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .specialty-price {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .specialty-description {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .order-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .order-button:hover {
+            background-color: #08567e;
+        }
+
+        .about-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background: url('/api/placeholder/600/400') center/cover no-repeat;
+            border-radius: 10px;
+        }
+
+        .testimonials {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .testimonials .section-title {
+            color: white;
+        }
+
+        .testimonials .section-title::after {
+            background-color: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+        }
+
+        .contact {
+            background-color: #f9f9f9;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-detail {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-map {
+            height: 300px;
+            background-color: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e9e9e9;
+            color: #888;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            margin: 20px 0;
+        }
+
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            margin-top: 20px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .about-wrap {
+                flex-direction: column;
+            }
+
+            .about-image {
+                width: 100%;
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">MARISCOS EL PACÍFICO</div>
+        <div class="tagline">Los mejores mariscos y ceviche fresco de Santa Cruz, Guanacaste</div>
+        <a href="#menu" class="cta-button">Ver Menú</a>
+
+        <div class="wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+    </header>
+
+    <section id="specialties">
+        <div class="container">
+            <h2 class="section-title">Nuestras Especialidades</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 30px auto;">
+                Disfruta de los sabores más frescos del Pacífico costarricense. Todos nuestros mariscos son capturados
+                diariamente por pescadores locales.
+            </p>
+
+            <div class="specialty-grid">
+                <div class="specialty-item">
+                    <div class="specialty-image" style="background-image: url('/api/placeholder/500/300');"></div>
+                    <div class="specialty-content">
+                        <h3 class="specialty-title">Ceviche Mixto</h3>
+                        <div class="specialty-price">₡5,500</div>
+                        <p class="specialty-description">Deliciosa combinación de pescado, camarón y pulpo marinados en
+                            limón con cilantro, cebolla y chile dulce.</p>
+                        <a href="#contact" class="order-button">Ordenar</a>
+                    </div>
+                </div>
+
+                <div class="specialty-item">
+                    <div class="specialty-image" style="background-image: url('/api/placeholder/500/300');"></div>
+                    <div class="specialty-content">
+                        <h3 class="specialty-title">Camarones al Ajillo</h3>
+                        <div class="specialty-price">₡7,500</div>
+                        <p class="specialty-description">Camarones grandes salteados en mantequilla, ajo y hierbas,
+                            acompañados de arroz y vegetales.</p>
+                        <a href="#contact" class="order-button">Ordenar</a>
+                    </div>
+                </div>
+
+                <div class="specialty-item">
+                    <div class="specialty-image" style="background-image: url('/api/placeholder/500/300');"></div>
+                    <div class="specialty-content">
+                        <h3 class="specialty-title">Pescado Entero</h3>
+                        <div class="specialty-price">₡8,500</div>
+                        <p class="specialty-description">Pescado fresco del día frito o a la plancha, acompañado de
+                            patacones, ensalada y limón.</p>
+                        <a href="#contact" class="order-button">Ordenar</a>
+                    </div>
+                </div>
+
+                <div class="specialty-item">
+                    <div class="specialty-image" style="background-image: url('/api/placeholder/500/300');"></div>
+                    <div class="specialty-content">
+                        <h3 class="specialty-title">Arroz con Mariscos</h3>
+                        <div class="specialty-price">₡9,500</div>
+                        <p class="specialty-description">Abundante arroz salteado con camarón, calamar, mejillones y
+                            pescado, con un toque de especias locales.</p>
+                        <a href="#contact" class="order-button">Ordenar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" style="background-color: white;">
+        <div class="container">
+            <h2 class="section-title">Nuestra Historia</h2>
+
+            <div class="about-wrap">
+                <div class="about-text">
+                    <p>En Mariscos El Pacífico, llevamos más de 15 años sirviendo los mejores productos del mar a los
+                        residentes y visitantes de Santa Cruz, Guanacaste.</p>
+                    <br>
+                    <p>Todos nuestros mariscos son cuidadosamente seleccionados cada mañana directamente de las
+                        embarcaciones de pescadores locales, garantizando la máxima frescura y sabor en cada platillo.
+                    </p>
+                    <br>
+                    <p>Nuestro chef, con más de 20 años de experiencia en la cocina de mariscos, combina las recetas
+                        tradicionales costarricenses con toques modernos para crear una experiencia gastronómica única
+                        que representa verdaderamente el sabor de nuestra costa.</p>
+                    <br>
+                    <p>Te invitamos a disfrutar de nuestros platillos, ya sea en nuestro acogedor restaurante con vista
+                        al mar o mediante nuestro servicio de entrega a domicilio.</p>
+                </div>
+                <div class="about-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-item">
+                    <p class="testimonial-text">"El mejor ceviche que he probado en toda Costa Rica. Ingredientes
+                        frescos y un balance perfecto de sabores. ¡Imperdible si visitas Santa Cruz!"</p>
+                    <div class="testimonial-author">- María González, San José</div>
+                </div>
+
+                <div class="testimonial-item">
+                    <p class="testimonial-text">"Los camarones al ajillo son espectaculares y el servicio muy amable. Me
+                        encanta que todos sus productos sean locales y frescos."</p>
+                    <div class="testimonial-author">- Carlos Ramírez, Liberia</div>
+                </div>
+
+                <div class="testimonial-item">
+                    <p class="testimonial-text">"Pedimos delivery y llegó todo perfecto. El arroz con mariscos es
+                        abundante y delicioso. Definitivamente repetiremos pronto."</p>
+                    <div class="testimonial-author">- Laura Méndez, Tamarindo</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu">
+        <div class="container">
+            <h2 class="section-title">Nuestro Menú Completo</h2>
+
+            <div
+                style="background: white; border-radius: 10px; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                <h3 style="color: var(--primary); margin-bottom: 20px;">ENTRADAS</h3>
+                <div style="display: grid; grid-template-columns: 1fr auto; gap: 10px; margin-bottom: 30px;">
+                    <div>Ceviche de Pescado</div>
+                    <div style="font-weight: 600; color: var(--accent);">₡4,500</div>
+
+                    <div>Ceviche Mixto</div>
+                    <div style="font-weight: 600; color: var(--accent);">₡5,500</div>
+
+                    <div>Ceviche de Camarón</div>
+                    <div style="font-weight: 600; color: var(--accent);">₡6,000</div>
+
+                    <div>Patacones con Guacamole</div>
+                    <div style="font-weight: 600; color: var(--accent);">₡3,500</div>
+
+                    <div>Chifrijo de Mariscos</div>
+                    <div style="font-weight: 600; color: var(--accent);">₡4,800</div>
+                </div>
+
+                <h3 style="color: var(--primary); margin-bottom: 20px;">PLATOS FUERTES</h3>
+                <div style="display: grid; grid-template-columns: 1fr auto; gap: 10px; margin-bottom: 30px;">
+                    <div>Camarones al Ajillo</div>
+                    <div style="font-weight: 600; color: var(--accent);">₡7,500</div>
+
+                    <div>Pescado Entero (Frito o Plancha)</div>
+                    <div style="font-weight: 600; color: var(--accent);">₡8,500</div>
+
+                    <div>Arroz con Mariscos</div>
+                    <div style="font-weight: 600; color: var(--accent);">₡9,500</div>
+
+                    <div>Casado de Pescado</div>
+                    <div style="font-weight: 600; color: var(--accent);">₡6,500</div>
+
+                    <div>Sopa de Mariscos</div>
+                    <div style="font-weight: 600; color: var(--accent);">₡8,000</div>
+
+                    <div>Langosta a la Parrilla (Temporada)</div>
+                    <div style="font-weight: 600; color: var(--accent);">₡15,000</div>
+                </div>
+
+                <h3 style="color: var(--primary); margin-bottom: 20px;">BEBIDAS</h3>
+                <div style="display: grid; grid-template-columns: 1fr auto; gap: 10px;">
+                    <div>Refresco Natural</div>
+                    <div style="font-weight: 600; color: var(--accent);">₡1,500</div>
+
+                    <div>Cerveza Nacional</div>
+                    <div style="font-weight: 600; color: var(--accent);">₡1,800</div>
+
+                    <div>Cerveza Importada</div>
+                    <div style="font-weight: 600; color: var(--accent);">₡2,500</div>
+
+                    <div>Cóctel de la Casa</div>
+                    <div style="font-weight: 600; color: var(--accent);">₡3,500</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-detail">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Dirección</h4>
+                            <p>200m oeste de la plaza principal, Santa Cruz, Guanacaste</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+506 2680-1234</p>
+                            <p>+506 8765-4321 (WhatsApp)</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <h4>Horario</h4>
+                            <p>Lunes a Domingo: 11:00 AM - 10:00 PM</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h4>Correo</h4>
+                            <p>info@mariscosepacifico.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-map">
+                    <div class="map-placeholder">
+                        Mapa de ubicación - Santa Cruz, Guanacaste
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">MARISCOS EL PACÍFICO</div>
+
+            <div class="footer-links">
+                <a href="#specialties" class="footer-link">Especialidades</a>
+                <a href="#about" class="footer-link">Nosotros</a>
+                <a href="#testimonials" class="footer-link">Testimonios</a>
+                <a href="#menu" class="footer-link">Menú</a>
+                <a href="#contact" class="footer-link">Contacto</a>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="social-icon">f</a>
+                <a href="#" class="social-icon">ig</a>
+                <a href="#" class="social-icon">wa</a>
+            </div>
+
+            <div class="copyright">
+                © 2025 Mariscos El Pacífico - Santa Cruz, Guanacaste. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
